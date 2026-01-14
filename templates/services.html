@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Our Services - LuxView{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Our Services</h1>
+        <p>Premium window treatment solutions for every need.</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="services-list">
+
+            <!-- Service Item -->
+            <div class="service-row">
+                <div class="service-image"
+                    style="background-image: url({% static 'images/gallery-shutters-white_compressed.png' %}); background-size: cover; background-position: center;">
+                </div>
+                <div class="service-content">
+                    <h2>Window Blind Installation</h2>
+                    <p>
+                        We offer a wide range of premium blinds including wood, faux wood, aluminum, and vertical
+                        blinds.
+                        Expertly measured and installed for a perfect fit.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Fit</li>
+                        <li><i class="fas fa-check"></i> Variety of Materials</li>
+                        <li><i class="fas fa-check"></i> Durable Hardware</li>
+                    </ul>
+                    <a href="{% url 'contact' %}?service=blinds" class="btn btn-primary">Request Quote</a>
+                </div>
+            </div>
+
+            <!-- Service Item -->
+            <div class="service-row reverse">
+                <div class="service-image"
+                    style="background-image: url({% static 'images/gallery-roman-shades-bay-window_compressed.png' %}); background-size: cover; background-position: center;">
+                </div>
+                <div class="service-content">
+                    <h2>Roller & Solar Shades</h2>
+                    <p>
+                        Modernize your space with our collection of roller and solar shades. Control light, privacy, and
+                        energy efficiency with style.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> UV Protection</li>
+                        <li><i class="fas fa-check"></i> Light Filtering to Blackout</li>
+                        <li><i class="fas fa-check"></i> Minimalist Design</li>
+                    </ul>
+                    <a href="{% url 'contact' %}?service=shades" class="btn btn-primary">Request Quote</a>
+                </div>
+            </div>
+
+            <!-- Service Item -->
+            <div class="service-row">
+                <div class="service-image"
+                    style="background-image: url({% static 'images/gallery-motorized-shade-large_compressed.png' %}); background-size: cover; background-position: center;">
+                </div>
+                <div class="service-content">
+                    <h2>Motorized Solutions</h2>
+                    <p>
+                        Experience the ultimate convenience with motorized window treatments. Control your shades with a
+                        remote, smartphone, or voice commands.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Smart Home Integration</li>
+                        <li><i class="fas fa-check"></i> Child & Pet Safe (Cordless)</li>
+                        <li><i class="fas fa-check"></i> Scheduled Operations</li>
+                    </ul>
+                    <a href="{% url 'contact' %}?service=motorized" class="btn btn-primary">Request Quote</a>
+                </div>
+            </div>
+
+            <!-- Service Item -->
+            <div class="service-row reverse">
+                <div class="service-image"
+                    style="background-image: url({% static 'images/gallery-porch-screens_compressed.png' %}); background-size: cover; background-position: center;">
+                </div>
+                <div class="service-content">
+                    <h2>Custom Window Treatments</h2>
+                    <p>
+                        From draperies to roman shades, we create custom soft treatments to match your interior design
+                        perfectly.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Designer Fabrics</li>
+                        <li><i class="fas fa-check"></i> Custom Tailoring</li>
+                        <li><i class="fas fa-check"></i> Layering Options</li>
+                    </ul>
+                    <a href="{% url 'contact' %}?service=custom" class="btn btn-primary">Request Quote</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Project Gallery Section -->
+<section class="section project-gallery">
+    <div class="container">
+        <div class="section-title-container">
+            <h2 class="section-title">Project Gallery</h2>
+            <p class="section-subtitle">Luxury installations. Clean finishes. Professional results.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <!-- ✅ Videos (from static/video/) -->
+            <div class="gallery-card">
+                <video class="gallery-video" autoplay muted loop playsinline>
+                    <source src="{% static 'video/IMG_5228.mp4' %}" type="video/mp4">
+                </video>
+                <div class="gallery-overlay">
+                    <div class="gallery-text">
+                        <h4>Luxury Installation</h4>
+                        <p>Video | Installation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <video class="gallery-video" autoplay muted loop playsinline>
+                    <source src="{% static 'video/Video Project.mp4' %}" type="video/mp4">
+                </video>
+                <div class="gallery-overlay">
+                    <div class="gallery-text">
+                        <h4>Luxury Installation</h4>
+                        <p>Video | Installation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <video class="gallery-video" autoplay muted loop playsinline>
+                    <source src="{% static 'video/IMG_2887.medium.mp4' %}" type="video/mp4">
+                </video>
+                <div class="gallery-overlay">
+                    <div class="gallery-text">
+                        <h4>Motorized Shades</h4>
+                        <p>Video | Project</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ Images Loop -->
+            {% for image in gallery_images %}
+            <div class="gallery-card">
+                <div class="gallery-image" style="background-image: url({% static image.url %});"></div>
+                <div class="gallery-overlay">
+                    <div class="gallery-text">
+                        <h4>{{ image.title }}</h4>
+                        <p>Project | Installation</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light text-center">
+    <div class="container">
+        <h2>Commercial Installations</h2>
+        <p>We work with businesses, developers, and designers for large-scale projects.</p>
+        <br>
+        <a href="{% url 'contact' %}?service=commercial" class="btn btn-outline">Contact Commercial Team</a>
+    </div>
+</section>
+
+<!-- ✅ Gallery CSS (Same size for image + video) -->
+<style>
+    /* All gallery cards same size */
+    .gallery-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        height: 280px;
+        /* adjust if you want */
+    }
+
+    /* Background image block */
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Video same size */
+    .gallery-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Overlay */
+    .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        padding: 16px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-overlay {
+        opacity: 1;
+    }
+
+    .gallery-text h4,
+    .gallery-text p {
+        color: #fff;
+        margin: 0;
+    }
+</style>
+
+{% endblock %}

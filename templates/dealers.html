@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Partner With Us - LuxView{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Partner With LuxView</h1>
+        <p>Join our network of trusted dealers and installation professionals.</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <h2>Why Partner With LuxView?</h2>
+                <p>We provide exclusive benefits to our partners, ensuring mutual growth and success.</p>
+
+                <div class="partner-benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Reliable Installations</h3>
+                            <p>Our team handles the heavy lifting, ensuring every project is installed to perfection.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Premium Customer Experience</h3>
+                            <p>We represent your brand with professionalism and courtesy at every step.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Competitive Pricing</h3>
+                            <p>Access special trade pricing and volume discounts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Become a Partner</h2>
+                <form action="#" method="post" class="contact-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Contact Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Business Type</label>
+                        <select id="type" name="type">
+                            <option value="designer">Interior Designer</option>
+                            <option value="architect">Architect</option>
+                            <option value="builder">Builder/Developer</option>
+                            <option value="retailer">Retailer</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

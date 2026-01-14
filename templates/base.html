@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LuxView - Premium Window Treatments{% endblock %}</title>
+    <meta name="description"
+        content="{% block meta_description %}Luxury blinds, shades, and custom window treatment installations for homes and businesses.{% endblock %}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url 'home' %}" class="logo">LuxView</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                <li><a href="{% url 'services' %}" class="nav-link">Services</a></li>
+                <li><a href="{% url 'dealers' %}" class="nav-link">Partners</a></li>
+                <li><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                <li><a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>LuxView</h3>
+                <p>Premium window treatments and expert installation for your home or business.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'dealers' %}">Partners</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+16784396630">678.439.6630</a></p>
+                <p><i class="fas fa-envelope"></i> <a
+                        href="mailto:info.luxview24@gmail.com">info.luxview24@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Metro Atlanta & Florida</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {% now "Y" %} LuxView. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

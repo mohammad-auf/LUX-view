@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us - LuxView{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Get in touch for a free consultation or quote.</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                {% if messages %}
+                <ul class="messages" style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    {% for message in messages %}
+                    <li
+                        style="padding: 15px; border-radius: 4px; margin-bottom: 10px; {% if message.tags == 'success' %}background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;{% elif message.tags == 'error' %}background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;{% endif %}">
+                        {{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <h2>Send Request</h2>
+                <p><strong>Preferred Contact Method:</strong> Use the form below or email for quotes and inquiries. Call
+                    for urgent service.</p>
+                <form action="#" method="post" class="contact-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="general">General Inquiry</option>
+                            <option value="blinds">Window Blinds</option>
+                            <option value="shades">Roller/Solar Shades</option>
+                            <option value="motorized">Motorized Solutions</option>
+                            <option value="commercial">Commercial Project</option>
+                            <option value="custom">Custom Window Treatments</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City / Location</label>
+                        <input type="text" id="city" name="city" placeholder="New York, NY">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Send Request</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>Contact Information</h3>
+                    <p class="info-item"><strong>Lux View LLC</strong></p>
+                    <p class="info-item"><i class="fas fa-phone"></i> <a href="tel:+16784396630">678.439.6630</a></p>
+                    <p class="info-item"><i class="fas fa-envelope"></i> <a
+                            href="mailto:info.luxview24@gmail.com">info.luxview24@gmail.com</a></p>
+                    <p class="info-item">
+                        <strong>Service Area:</strong><br>
+                        Metro Atlanta & surrounding cities, Savannah, Macon, Tallahassee, Tampa Fl, Miami Fl, and
+                        surrounding in Florida
+                    </p>
+                    <p class="info-item">
+                        <strong>Social Media:</strong><br>
+                        <a href="https://instagram.com/LuxViewLLC" target="_blank"><i class="fab fa-instagram"></i>
+                            @LuxViewLLC</a><br>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i> Lux View LLC</a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Business Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Saturday:</span> <span>8:00 AM - 6:00 PM</span></li>
+                        <li><span>Sunday:</span> <span>Closed</span></li>
+                    </ul>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="map-placeholder">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976373946229!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1645564756836!5m2!1sen!2s"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

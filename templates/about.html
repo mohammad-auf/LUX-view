@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% block title %}About Us - LuxView{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>About LuxView</h1>
+        <p>Elevating spaces with premium window treatments.</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container narrow-container">
+        <h2 class="text-center">Company Background</h2>
+        <p class="lead text-center">Lux View LLC is a professional window treatment installation company based in
+            Georgia.</p>
+        <br>
+        <p>We specialize exclusively in installation — allowing dealers, designers, and homeowners to receive
+            expert-level service without compromise.</p>
+
+        <br><br>
+        <h2 class="text-center">Mission</h2>
+        <p class="text-center" style="font-size: 1.2rem; font-style: italic;">"To deliver precise, reliable, and
+            luxury-level window treatment installations that elevate every space we touch."</p>
+    </div>
+</section>
+
+<!-- ================= OUR PROCESS (CONNECTED BUBBLE STYLE) ================= -->
+<section class="section bg-light" id="process-section">
+    <div class="container">
+        <div class="section-title-container text-center">
+            <h2 class="section-title">Our Process</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <!-- Process Map -->
+        <div class="process-map-wrapper">
+            <!-- Curved Connector Line (SVG) -->
+            <svg class="process-connector" viewBox="0 0 1200 260" preserveAspectRatio="none">
+                <path d="M80,120 
+                         C220,20 320,220 460,120
+                         S700,20 840,120
+                         S1060,220 1120,120" fill="none" stroke="#19C2B1" stroke-width="10" stroke-linecap="round"
+                    stroke-linejoin="round" opacity="0.85" />
+            </svg>
+
+            <!-- Step 1 -->
+            <div class="process-bubble bubble-1">
+                <div class="bubble-inner">
+                    <div class="bubble-num">1</div>
+                    <h3>Consultation</h3>
+                    <p>We meet with you to understand your needs, style preferences, and budget.</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-bubble bubble-2">
+                <div class="bubble-inner">
+                    <div class="bubble-num">2</div>
+                    <h3>Measurement</h3>
+                    <p>Our experts take precise measurements to ensure a perfect fit for your windows.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-bubble bubble-3">
+                <div class="bubble-inner">
+                    <div class="bubble-num">3</div>
+                    <h3>Installation</h3>
+                    <p>We professionally install your treatments with care and attention to detail.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-bubble bubble-4">
+                <div class="bubble-inner">
+                    <div class="bubble-num">4</div>
+                    <h3>Final Check</h3>
+                    <p>We walk you through the operation and ensure you are 100% satisfied.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section text-center">
+    <div class="container">
+        <h2>Ready to work with us?</h2>
+        <br>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Get in Touch</a>
+    </div>
+</section>
+
+<!-- ================= PROCESS SECTION CSS ================= -->
+<style>
+    /* Wrapper */
+    .process-map-wrapper {
+        position: relative;
+        max-width: 1200px;
+        margin: 50px auto 10px auto;
+        padding: 40px 10px;
+        min-height: 320px;
+    }
+
+    /* Connector SVG */
+    .process-connector {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        z-index: 1;
+    }
+
+    /* Bubble Base */
+    .process-bubble {
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        background: #F4B400;
+        border: 10px solid #19C2B1;
+        border-radius: 50%;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .process-bubble:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+        border-color: #0ea99b;
+    }
+
+    /* Bubble Content */
+    .bubble-inner {
+        text-align: center;
+        padding: 25px;
+        color: #111;
+        font-family: inherit;
+    }
+
+    .bubble-num {
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 10px;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .bubble-inner h3 {
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: #111;
+    }
+
+    .bubble-inner p {
+        font-size: 14px;
+        margin: 0;
+        color: rgba(0, 0, 0, 0.75);
+        line-height: 1.4;
+    }
+
+    /* Position bubbles like the image (up-down-up-down) */
+    .bubble-1 {
+        left: 2%;
+        top: 10px;
+    }
+
+    .bubble-2 {
+        left: 27%;
+        top: 130px;
+    }
+
+    .bubble-3 {
+        left: 52%;
+        top: 10px;
+    }
+
+    .bubble-4 {
+        left: 77%;
+        top: 130px;
+    }
+
+    /* Responsive (Mobile Stack) */
+    @media (max-width: 992px) {
+        .process-map-wrapper {
+            min-height: auto;
+            padding: 20px 0;
+        }
+
+        .process-connector {
+            display: none;
+        }
+
+        .process-bubble {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            margin: 25px auto;
+            left: auto !important;
+            top: auto !important;
+        }
+    }
+</style>
+
+{% endblock %}
