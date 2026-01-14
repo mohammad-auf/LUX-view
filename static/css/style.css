@@ -232,7 +232,7 @@ img {
 /* Hero Section */
 .hero {
     height: 85vh;
-    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    /* background: url('../images/') no-repeat center center/cover; */
     /* Placeholder logic needed if no image */
     background-color: #333;
     /* Fallback */
