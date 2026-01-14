@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure--(o-2m0ltbyla(&ig8n$#l&+_1w&w1rth%&cqcjgondzr2e2z&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "lux-view-1.onrender.com",
+]
+
 
 
 # Application definition
