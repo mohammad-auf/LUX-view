@@ -1,0 +1,43 @@
+RUN LOCALLY (DEVELOPMENT)
+
+1) Create virtual environment
+Windows:
+python -m venv venv
+venv\Scripts\activate
+
+Mac/Linux:
+python3 -m venv venv
+source venv/bin/activate
+
+2) Install dependencies
+pip install -r requirements.txt
+
+3) Run migrations
+python manage.py makemigrations
+python manage.py migrate
+
+4) Create admin user (optional)
+python manage.py createsuperuser
+
+5) Start server
+python manage.py runserver
+
+Open in browser:
+http://127.0.0.1:8000/
+
+
+DEPLOYMENT (BASIC STEPS)
+
+1) Set environment variables on hosting
+
+DEBUG=False
+ALLOWED_HOSTS=yourdomain.com
+
+2) Collect static files
+python manage.py collectstatic
+
+3) Run migrations on server
+python manage.py migrate
+
+4) Start production server (Gunicorn)
+gunicorn projectname.wsgi:application
