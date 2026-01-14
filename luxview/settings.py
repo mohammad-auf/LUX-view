@@ -13,17 +13,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# ==========================
+# SECURITY SETTINGS
+# ==========================
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure--(o-2m0ltbyla(&ig8n$#l&+_1w&w1rth%&cqcjgondzr2e2z&'
@@ -36,8 +31,9 @@ ALLOWED_HOSTS = [
 ]
 
 
-
-# Application definition
+# ==========================
+# APPLICATION DEFINITION
+# ==========================
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # ✅ add this
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # ✅ WhiteNoise for Render static files
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -81,8 +77,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'luxview.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# ==========================
+# DATABASE
+# ==========================
 
 DATABASES = {
     'default': {
@@ -92,8 +89,9 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+# ==========================
+# PASSWORD VALIDATION
+# ==========================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -111,8 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
+# ==========================
+# INTERNATIONALIZATION
+# ==========================
 
 LANGUAGE_CODE = 'en-us'
 
@@ -123,13 +122,26 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
+# ==========================
+# STATIC FILES (CSS, JS, Images, Videos)
+# ==========================
 
-# STATIC_URL = 'static/'
-# STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_URL = "/static/"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+# ✅ This is where Render will collect static files
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# ✅ This tells Django where your static folder is (IMPORTANT)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+# ✅ WhiteNoise storage
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# ==========================
+# DEFAULT PRIMARY KEY FIELD TYPE
+# ==========================
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
