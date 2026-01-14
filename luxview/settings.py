@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure--(o-2m0ltbyla(&ig8n$#l&+_1w&w1rth%&cqcjgondzr2e2z&
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "lux-view-1.onrender.com",
+    "*",
 ]
 
 
