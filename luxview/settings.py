@@ -141,21 +141,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # ==========================
-# CUSTOM USER MODEL
-# ==========================
-
-AUTH_USER_MODEL = 'website.User'
-
-
-# ==========================
-# MEDIA FILES (User Uploads)
-# ==========================
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-
-# ==========================
 # DEFAULT PRIMARY KEY FIELD TYPE
 # ==========================
 
