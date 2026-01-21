@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import LeadForm
+from .forms import LeadForm, PartnerApplicationForm
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
@@ -32,8 +32,20 @@ class ServicesPageView(TemplateView):
         context['gallery_images'] = gallery_images
         return context
 
-class DealersPageView(TemplateView):
+class DealersPageView(FormView):
     template_name = 'dealers.html'
+    form_class = PartnerApplicationForm
+    success_url = reverse_lazy('dealers')
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, "Thank you for your interest! We will review your application and contact you shortly.")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "There was an error with your submission. Please check the form and try again.")
+        return super().form_invalid(form)
+
 
 class ContactPageView(FormView):
     template_name = 'contact.html'

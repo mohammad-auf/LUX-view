@@ -20,3 +20,22 @@ class Lead(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.service}"
+
+class PartnerApplication(models.Model):
+    BUSINESS_TYPE_CHOICES = [
+        ('designer', 'Interior Designer'),
+        ('architect', 'Architect'),
+        ('builder', 'Builder/Developer'),
+        ('retailer', 'Retailer'),
+        ('other', 'Other'),
+    ]
+
+    company = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20, blank=True)
+    business_type = models.CharField(max_length=50, choices=BUSINESS_TYPE_CHOICES, default='other')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.company} - {self.name}"

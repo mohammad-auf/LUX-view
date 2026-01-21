@@ -44,33 +44,51 @@
 
             <div class="contact-form-container">
                 <h2>Become a Partner</h2>
-                <form action="#" method="post" class="contact-form">
+                
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="post" class="contact-form">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="company">Company Name *</label>
-                        <input type="text" id="company" name="company" required>
+                        <label for="{{ form.company.id_for_label }}">Company Name *</label>
+                        {{ form.company }}
+                        {% if form.company.errors %}
+                            <div class="error">{{ form.company.errors }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-group">
-                        <label for="name">Contact Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="{{ form.name.id_for_label }}">Contact Name *</label>
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                            <div class="error">{{ form.name.errors }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="{{ form.email.id_for_label }}">Email Address *</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="error">{{ form.email.errors }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
+                        <label for="{{ form.phone.id_for_label }}">Phone Number</label>
+                        {{ form.phone }}
+                        {% if form.phone.errors %}
+                            <div class="error">{{ form.phone.errors }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-group">
-                        <label for="type">Business Type</label>
-                        <select id="type" name="type">
-                            <option value="designer">Interior Designer</option>
-                            <option value="architect">Architect</option>
-                            <option value="builder">Builder/Developer</option>
-                            <option value="retailer">Retailer</option>
-                            <option value="other">Other</option>
-                        </select>
+                        <label for="{{ form.business_type.id_for_label }}">Business Type</label>
+                        {{ form.business_type }}
+                        {% if form.business_type.errors %}
+                            <div class="error">{{ form.business_type.errors }}</div>
+                        {% endif %}
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
                 </form>
